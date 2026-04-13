@@ -31,7 +31,7 @@ the cache is never detected or saved.
 3. The **build command** is:
 
    ```
-   hugo --minify --cacheDir=$PWD/.cache
+   hugo --minify --logLevel debug --cacheDir=$PWD/.cache
    ```
 
 ## How to verify the fix
