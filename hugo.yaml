@@ -1,0 +1,22 @@
+baseURL: "https://example.com/"
+languageCode: "en-us"
+title: "BANDA-1700 Hugo Cache Repro"
+
+# Direct Hugo's caches into .cache so Cloudflare Pages can persist them
+# between builds. See: https://gohugo.io/getting-started/configuration/#configure-cache
+caches:
+  assets:
+    dir: ":cacheDir/assets"
+    maxAge: -1
+  getresource:
+    dir: ":cacheDir/getresource"
+    maxAge: -1
+  images:
+    dir: ":cacheDir/images"
+    maxAge: -1
+  misc:
+    dir: ":cacheDir/misc"
+    maxAge: -1
+  modules:
+    dir: ":cacheDir/modules"
+    maxAge: -1

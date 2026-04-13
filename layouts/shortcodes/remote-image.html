@@ -1,0 +1,16 @@
+{{/*
+  Fetch a remote image via resources.GetRemote.
+  Hugo caches the HTTP response in its getresource cache,
+  so subsequent builds with a warm .cache skip the network round-trip.
+*/}}
+{{ $url := .Get "url" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ with resources.GetRemote $url }}
+  {{ with .Err }}
+    <p style="color:red;">Failed to fetch remote image: {{ . }}</p>
+  {{ else }}
+    <img src="{{ .RelPermalink }}" alt="{{ $alt }}" loading="lazy" />
+  {{ end }}
+{{ else }}
+  <p style="color:red;">Could not get remote resource: {{ $url }}</p>
+{{ end }}
